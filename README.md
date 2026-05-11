@@ -1,5 +1,8 @@
-## MECAT: A Multi-Experts Constructed Benchmark for Fine-Grained Audio Understanding Tasks
-[**📖 arXiv**](https://arxiv.org/abs/2507.23511) | [**🛠️ GitHub Code**](https://github.com/xiaomi-research/mecat) | [**🔊 MECAT-Caption Dataset (HuggingFace)**](https://huggingface.co/datasets/mispeech/MECAT-Caption) [**🔊 MECAT-QA Dataset (HuggingFace)**](https://huggingface.co/datasets/mispeech/MECAT-QA)
+<h2 align="center">MECAT: A Multi-Experts Constructed Benchmark for Fine-Grained Audio Understanding Tasks</h2>
+
+<p align="center">
+<a href="https://arxiv.org/abs/2507.23511"><b>📖 Paper</b></a> | <a href="https://nyd3001.github.io/mecat-demo"><b>🎧 Demo</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-Caption"><b>🔊 MECAT-Caption (HF)</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-QA"><b>🔊 MECAT-QA (HF)</b></a>
+</p>
 
 <p align="center"><img src="src/logo.png" alt="MECAT Logo" width="300"/></p>
 
@@ -11,8 +14,8 @@
   - [4.1 Audio-Captioning](#41-audio-captioning)
   - [4.2 Audio-Question-Answering](#42-audio-question-answering)
 - [5. Example Data](#5-example-data)
-  - [5.1 Audio Captioning Example (SMA - Speech, Music and General Sound)](#51-audio-captioning-example-sma---speech-music-and-general-sound)
-  - [5.2 Audio Question Answering Example (SMA - Speech, Music and General Sound)](#52-audio-question-answering-example-sma---speech-music-and-general-sound)
+  - [5.1 Audio Captioning Example](#51-audio-captioning-example)
+  - [5.2 Audio Question Answering Example](#52-audio-question-answering-example)
 - [6. Evaluation Metrics](#6-evaluation-metrics)
 - [7. Usage](#7-usage)
   - [7.1 Installation](#71-installation)
@@ -309,63 +312,61 @@ MECAT is a comprehensive benchmark constructed on **large-scale data** to evalua
 
 ## 5. Example Data
 
-### 5.1 Audio Captioning Example (SMA - Speech, Music and General Sound)
+The following examples are from the SMA (Speech, Music and General Sound) domain. You can listen to the audio and browse more samples across all 8 domains on the [**Demo Page**](https://nyd3001.github.io/mecat-demo).
 
-The following example shows the comprehensive caption annotations for a single audio sample from the SMA domain. This is the first data sample from the HuggingFace dataset:
+### 5.1 Audio Captioning Example
 
-**Data Source**: [MECAT-Caption/SMA/Test/test_0000-0000000.tar.gz](https://huggingface.co/datasets/mispeech/MECAT-Caption/tree/main/SMA/test_0000-0000000.tar.gz)
+Each audio clip has 6 caption types (short, long, speech, music, sound, environment), each with 3 paraphrased variants:
 
 ```json
 {
-  "RjRMEFDocEY_78_681_88_681": {
+  "tFg4IwL09Rk_111_64000000000001_121_64": {
     "short": [
-      "Energetic electronic music accompanies animated speech with intermittent dog barks and background interference.",
-      "Upbeat instrumental track plays under expressive dialogue and occasional canine vocalizations amid noise.",
-      "Dynamic speech with emotional shifts over electronic music featuring sporadic barking and audio artifacts."
+      "Electronic music with water splashing and brief speech amid static interference",
+      "Dark electronic instrumental with aquatic sounds and momentary vocal utterance",
+      "Water splashing noises under brooding synth music featuring short spoken phrase"
     ],
     "long": [
-      "A female voice delivers emotionally varied speech ranging from laughter to frustration, accompanied by rhythmic electronic instrumentation with guitar elements. Occasional dog barks emerge through persistent background static and audio distortion.",
-      "Expressive vocal performance transitions between cheerfulness and intensity, layered over a driving electronic beat with occasional animal sounds and recording imperfections.",
-      "Vivid speech with fluctuating emotional tones interacts with synth-driven musical backing, punctuated by canine noises and low-fidelity artifacts."
+      "A dark electronic instrumental track with water splashing sounds and a male voice briefly speaking, accompanied by persistent background static and mid-frequency noise artifacts.",
+      "Moody electronic composition blending synthesized tones with environmental water sounds and fragmented speech, degraded by audio interference",
+      "Sustained static underlies a brief male utterance and aquatic noises within a dramatic electronic musical arrangement"
     ],
     "speech": [
-      "Animated female speech displaying rapid emotional shifts from laughter to frustration.",
-      "Expressive vocal delivery alternating between cheerful and agitated tones.",
-      "Dynamic spoken performance transitioning between amusement and intensity."
+      "Male voice briefly uttering 'We over' with cheerful vocal characteristics",
+      "Short spoken phrase 'We over' delivered in an upbeat tone",
+      "Fragmentary speech segment showing positive vocal affect"
     ],
     "music": [
-      "Moderate-tempo electronic composition featuring prominent guitar and rhythmic percussion elements.",
-      "Driving synth-based arrangement with guitar accents and steady beat.",
-      "Energetic instrumental track combining electronic textures with rhythmic guitar work."
+      "Dark electronic music featuring synthesizer and guitar elements with moderate tempo",
+      "Brooding instrumental track combining synthetic textures and guitar tones",
+      "Dramatic electronic composition with industrial-inspired rhythmic patterns"
     ],
     "sound": [
-      "Intermittent dog vocalizations amidst persistent electrical interference.",
-      "Occasional canine barks layered over background static.",
-      "Sporadic animal noises punctuating continuous audio distortion."
+      "Prominent water splashing sounds with intermittent static bursts",
+      "Aquatic environment noises dominated by liquid movement",
+      "Liquid splashing effects accompanied by electrical interference"
     ],
     "environment": [
-      "Low-quality recording with noticeable background interference and distortion.",
-      "Audio artifacts and electrical noise throughout the recording.",
-      "Persistent static and signal degradation affecting audio clarity."
+      "Low-quality audio environment with background static and mid-range distortion",
+      "Noisy recording space exhibiting persistent electrical interference",
+      "Degraded acoustic conditions with broadband static artifacts"
     ],
     "domain": "SMA"
   }
 }
 ```
 
-### 5.2 Audio Question Answering Example (SMA - Speech, Music and General Sound)
+### 5.2 Audio Question Answering Example
 
-The following example shows a QA pair from the SMA domain. This is the first data sample from the HuggingFace dataset:
-
-**Data Source**: [MECAT-QA/SMA/Test/test_0000-0000000.tar.gz](https://huggingface.co/datasets/mispeech/MECAT-QA/tree/main/SMA)
+Each audio clip has 5 QA pairs spanning different cognitive categories and difficulty levels:
 
 ```json
 {
-  "RjRMEFDocEY_78_681_88_681_ffd8b511": {
+  "tFg4IwL09Rk_..._b4dfbcf5": {
     "category": "direct_perception",
     "difficulty": "basic",
-    "question": "What type of vocal sounds are present?",
-    "answer": "A woman speaking expressively and dog barks.",
+    "question": "Is speech present in the audio?",
+    "answer": "Yes, a male voice briefly says 'We over'",
     "domain": "SMA"
   }
 }
@@ -837,357 +838,77 @@ This approach is useful when:
 **Important**: If you want to obtain results for different tasks (e.g., evaluating multiple caption subtasks or QA subtasks), it is recommended to use the methods described in sections 7.1-7.3, as they automatically select the appropriate keys for different tasks and provide comprehensive evaluation results across all subtasks.
 
 ## 8. Results
-### 8.1 Audio-Captioning Task
+### 8.1 Audio-Captioning Task (DATE %)
 
-#### 8.1.1 **DATE**
+**Bold** indicates the best performance. Models above the line are open-weight; below are proprietary/API-based.
 
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-pdeq" rowspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Type</span></th>
-    <th class="tg-pdeq" rowspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Name</span></th>
-    <th class="tg-fyfk" colspan="2" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Systemtic</span></th>
-    <th class="tg-fyfk" colspan="6"><span style="font-weight:bold;color:#000;background-color:#FFF">Content-Specific</span></th>
-    <th class="tg-fyfk" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Content-Unrelated</span></th>
-    <th class="tg-fyfk" rowspan="3"><span style="font-weight:bold;background-color:#FFF">Overall</span></th>
-  </tr>
-  <tr>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Speech-Focused</span></th>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Music-Focused</span></th>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Sound-Focused</span></th>
-  </tr>
-  <tr>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">long</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">short</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-fyfk"><span style="font-weight:bold;color:#000;background-color:#FFF">environment</span></th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-jxgv" rowspan="2"><span style="color:#000;background-color:#FFF">Caption-Only</span></td>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">enclap</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">48.6</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">53.1</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">30.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">31.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">17.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">15.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">48.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">15.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">6.8</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">33.3</span></td>
-  </tr>
-  <tr>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">pengi</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">43.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">46.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">27.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">29.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">29.3</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">13.1</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">42.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">14.6</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">7.1</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">30.6</span></td>
-  </tr>
-  <tr>
-    <td class="tg-jxgv" rowspan="4"><span style="color:#000;background-color:#FFF">LALM</span></td>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">audio-flamingo</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">48.6</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">49.7</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">30.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">34.3</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">28.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">25.6</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">41.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">18.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">17.5</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">35.6</span></td>
-  </tr>
-  <tr>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">kimi-audio</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">49.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">54.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">30.0</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">31.3</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">27.7</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">16.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">43.1</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">16.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">7.0</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">34.3</span></td>
-  </tr>
-  <tr>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">omni3b</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">56.4</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">55.2</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">42.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">41.3</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">46.6</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">29.7</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">52.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">23.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">19.4</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">42.6</span></td>
-  </tr>
-  <tr>
-    <td class="tg-jxgv"><span style="color:#000;background-color:#FFF">omni7b</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">61.1</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">56.5</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">39.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">40.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">32.1</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">30.9</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">50.7</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">23.8</span></td>
-    <td class="tg-nbj5"><span style="color:#000;background-color:#FFF">17.9</span></td>
-    <td class="tg-jxgv"><span style="background-color:#FFF">43.0</span></td>
-  </tr>
-</tbody></table>
-
-#### 8.1.2 **FENSE**
-
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-pdeq" rowspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Type</span></th>
-    <th class="tg-pdeq" rowspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Name</span></th>
-    <th class="tg-fyfk" colspan="2" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Systemtic</span></th>
-    <th class="tg-fyfk" colspan="6"><span style="font-weight:bold;color:#000;background-color:#FFF">Content-Specific</span></th>
-    <th class="tg-fyfk" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Content-Unrelated</span></th>
-    <th class="tg-fyfk" rowspan="3"><span style="font-weight:bold;background-color:#FFF">Overall</span></th>
-  </tr>
-  <tr>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Speech-Focused</span></th>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Music-Focused</span></th>
-    <th class="tg-fyfk" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Sound-Focused</span></th>
-  </tr>
-  <tr>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">long</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">short</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">pure</span></th>
-    <th class="tg-7btt"><span style="font-weight:bold;color:#000">mixed</span></th>
-    <th class="tg-fyfk"><span style="font-weight:bold;color:#000;background-color:#FFF">environment</span></th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-0ys1" rowspan="2"><span style="color:#000;background-color:#FFF">Caption-Only</span></td>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">enclap-both</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">40.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">45.0</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">28.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">29.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">39.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">15.0</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">41.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">17.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">17.9</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">31.6</span></td>
-  </tr>
-  <tr>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">pengi</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">37.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">41.0</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">26.6</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">29.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">39.6</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">11.8</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">35.4</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">16.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">17.8</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">29.5</span></td>
-  </tr>
-  <tr>
-    <td class="tg-0ys1" rowspan="4"><span style="color:#000;background-color:#FFF">LALM</span></td>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">audio-flamingo2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">43.8</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">43.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">28.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">33.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">43.1</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">30.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">41.0</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">24.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">45.4</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">39.4</span></td>
-  </tr>
-  <tr>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">kimi-audio</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">40.8</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">45.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">25.6</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">27.1</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">39.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">16.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">35.8</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">19.4</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">16.7</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">30.8</span></td>
-  </tr>
-  <tr>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">qwen2.5-omni3b</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">48.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">45.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">37.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">37.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">50.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">34.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">46.6</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">34.1</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">47.8</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">44.1</span></td>
-  </tr>
-  <tr>
-    <td class="tg-0ys1"><span style="color:#000;background-color:#FFF">qwen2.5-omni7b</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">52.7</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">46.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">35.3</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">37.5</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">39.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">33.1</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">45.2</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">32.1</span></td>
-    <td class="tg-rcip"><span style="color:#000;background-color:#FFF">41.0</span></td>
-    <td class="tg-0ys1"><span style="background-color:#FFF">43.4</span></td>
-  </tr>
-</tbody></table>
-
-### 8.2 Audio-Question-Answering 
-
-#### 8.2.1 **DATE**
-
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Type</span></th>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Model Name</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">Perception</span></th>
-    <th class="tg-2g1l" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Analsysis</span></th>
-    <th class="tg-2g1l" colspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Reasoning</span></th>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;background-color:#FFF">Overall</span></th>
-  </tr>
-  <tr>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">direct </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">perception</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">sound </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">characteristics</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">quality </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">assessment</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">environment </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">reasoning</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">inference</span><br><span style="font-weight:bold;color:#000;background-color:#FFF"> judgement</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">application </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">context</span></th>
-  </tr>
+<table>
+<thead>
+<tr>
+<th rowspan="3">Type</th><th rowspan="3">Model</th>
+<th colspan="2">Systemic</th><th colspan="6">Content-Specific</th>
+<th rowspan="2">Content<br>Unrelated</th><th rowspan="3">Score</th>
+</tr>
+<tr>
+<th colspan="2">Speech</th><th colspan="2">Music</th><th colspan="2">Sound</th>
+</tr>
+<tr>
+<th>Long</th><th>Short</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Env</th>
+</tr>
 </thead>
 <tbody>
-  <tr>
-    <td class="tg-f4yw" rowspan="4"><span style="color:#000;background-color:#FFF">LALM</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">audio-flamingo2</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">45.1</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">46.3</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">34.9</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">37.5</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">44.0</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">42.4</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">41.7</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">kimi-audio</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">45.6</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">39.2</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">18.7</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">34.6</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">48.9</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">41.2</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">38.0</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">qwen2.5-omni3b</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">55.7</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">53.2</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">38.6</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">41.1</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">51.8</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">50.8</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">48.5</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">qwen2.5-omni7b</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">57.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">52.9</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">39.1</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">44.0</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">53.2</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">50.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">49.6</span></td>
-  </tr>
-</tbody></table>
+<tr><td rowspan="2">Caption<br>-Only</td><td>Pengi</td><td>43.5</td><td>46.8</td><td>27.2</td><td>29.5</td><td>29.3</td><td>13.1</td><td>42.8</td><td>14.6</td><td>7.1</td><td>29.4</td></tr>
+<tr><td>EnClap</td><td>48.6</td><td>53.1</td><td>30.2</td><td>31.8</td><td>17.9</td><td>15.9</td><td>48.8</td><td>15.2</td><td>6.8</td><td>31.9</td></tr>
+<tr><td rowspan="15">LALM</td><td>Phi-4-Multimodal</td><td>42.4</td><td>44.0</td><td>26.9</td><td>31.3</td><td>14.9</td><td>24.0</td><td>28.5</td><td>18.1</td><td>13.1</td><td>30.0</td></tr>
+<tr><td>Kimi-Audio-7B</td><td>49.5</td><td>54.2</td><td>30.0</td><td>31.3</td><td>27.7</td><td>16.9</td><td>43.1</td><td>16.2</td><td>7.0</td><td>32.8</td></tr>
+<tr><td>Baichuan-Audio</td><td>42.6</td><td>36.5</td><td>46.0</td><td>40.4</td><td>21.3</td><td>20.7</td><td>44.8</td><td>17.7</td><td>15.1</td><td>33.7</td></tr>
+<tr><td>Baichuan-Omni</td><td>47.0</td><td>50.9</td><td>43.5</td><td>41.7</td><td>35.2</td><td>13.7</td><td>34.3</td><td>19.7</td><td>11.3</td><td>35.6</td></tr>
+<tr><td>Mimo-Audio</td><td>56.5</td><td>56.9</td><td>45.8</td><td>44.9</td><td>35.8</td><td>19.4</td><td>46.8</td><td>21.0</td><td>9.8</td><td>40.1</td></tr>
+<tr><td>Audio Flamingo 3</td><td>52.5</td><td>51.5</td><td>49.3</td><td>48.8</td><td>40.4</td><td>24.8</td><td>50.6</td><td>21.9</td><td>11.5</td><td>40.4</td></tr>
+<tr><td>Qwen3-Omni</td><td>47.9</td><td>43.7</td><td>50.2</td><td>48.7</td><td>51.2</td><td>26.8</td><td>49.0</td><td>19.5</td><td>18.2</td><td>40.4</td></tr>
+<tr><td>Step-Audio-2-mini</td><td>55.6</td><td>58.7</td><td>44.2</td><td>43.6</td><td>35.3</td><td>32.0</td><td>42.8</td><td>18.9</td><td>16.1</td><td>41.5</td></tr>
+<tr><td>Qwen2.5-Omni 3B</td><td>56.4</td><td>55.2</td><td>42.5</td><td>41.3</td><td>46.6</td><td>29.7</td><td>52.9</td><td>23.9</td><td>19.4</td><td>42.5</td></tr>
+<tr><td>Qwen2.5-Omni 7B</td><td>61.1</td><td>56.5</td><td>39.9</td><td>40.9</td><td>32.1</td><td>30.9</td><td>50.7</td><td>23.8</td><td>17.9</td><td>42.6</td></tr>
+<tr><td>Qwen3-Omni-Flash-1201</td><td><b>65.7</b></td><td>62.5</td><td>59.2</td><td>59.9</td><td><b>57.4</b></td><td>32.5</td><td><b>55.8</b></td><td><b>31.6</b></td><td><b>27.1</b></td><td>52.9</td></tr>
+<tr><td>Gemini-2.5-Flash</td><td>65.6</td><td>63.9</td><td>57.5</td><td>57.5</td><td>52.9</td><td><b>41.0</b></td><td>52.2</td><td>28.3</td><td>22.1</td><td>51.6</td></tr>
+<tr><td>Gemini-2.5-Pro</td><td>62.3</td><td>62.4</td><td>56.6</td><td>57.5</td><td>53.6</td><td>38.7</td><td>53.4</td><td>29.9</td><td>24.0</td><td>50.6</td></tr>
+<tr><td>Gemini-3-Flash</td><td>63.6</td><td>61.9</td><td>59.4</td><td>60.8</td><td>43.1</td><td>32.9</td><td>51.1</td><td>29.7</td><td>25.7</td><td>51.1</td></tr>
+<tr><td>Gemini-3-Pro</td><td>64.9</td><td><b>65.8</b></td><td><b>60.5</b></td><td><b>62.4</b></td><td>49.8</td><td>39.8</td><td>55.1</td><td>29.9</td><td>26.1</td><td><b>53.1</b></td></tr>
+</tbody>
+</table>
 
-#### 8.2.2 **FENSE**
+### 8.2 Audio-Question-Answering (DATE %)
 
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Model-Type</span></th>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Model-Name</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">Perception</span></th>
-    <th class="tg-2g1l" colspan="2"><span style="font-weight:bold;color:#000;background-color:#FFF">Analsysis</span></th>
-    <th class="tg-2g1l" colspan="3"><span style="font-weight:bold;color:#000;background-color:#FFF">Reasoning</span></th>
-    <th class="tg-2g1l" rowspan="2"><span style="font-weight:bold;background-color:#FFF">Overall</span></th>
-  </tr>
-  <tr>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">direct </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">perception</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">sound </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">characteristics</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">quality </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">assessment</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">environment </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">reasoning</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">inference</span><br><span style="font-weight:bold;color:#000;background-color:#FFF"> judgement</span></th>
-    <th class="tg-2g1l"><span style="font-weight:bold;color:#000;background-color:#FFF">application </span><br><span style="font-weight:bold;color:#000;background-color:#FFF">context</span></th>
-  </tr>
+<table>
+<thead>
+<tr>
+<th rowspan="2">Model</th>
+<th>Perception</th><th colspan="2">Analysis</th><th colspan="3">Reasoning</th>
+<th rowspan="2">Score</th>
+</tr>
+<tr>
+<th>Direct<br>Perception</th><th>Sound<br>Characteristics</th><th>Quality<br>Assessment</th>
+<th>Environment<br>Reasoning</th><th>Inference &<br>Judgment</th><th>Application<br>Context</th>
+</tr>
 </thead>
 <tbody>
-  <tr>
-    <td class="tg-f4yw" rowspan="4"><span style="color:#000;background-color:#FFF">LALM</span></td>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">audio-flamingo2</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">39.1</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">39.0</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">37.4</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">41.3</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">35.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">35.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">38.0</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">kimi-audio</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">37.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">32.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">19.2</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">37.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">38.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">33.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">33.2</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">qwen2.5-omni3b</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">47.2</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">43.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">39.7</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">43.2</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">41.0</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">41.9</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">42.8</span></td>
-  </tr>
-  <tr>
-    <td class="tg-f4yw"><span style="color:#000;background-color:#FFF">qwen2.5-omni7b</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">49.7</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">43.8</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">40.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">44.1</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">42.5</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">41.9</span></td>
-    <td class="tg-0p15"><span style="color:#1F2329;background-color:#FFF">43.7</span></td>
-  </tr>
-</tbody></table>
+<tr><td>Kimi-Audio-7B</td><td>45.6</td><td>39.2</td><td>18.7</td><td>34.6</td><td>48.9</td><td>41.2</td><td>38.0</td></tr>
+<tr><td>Baichuan-Audio</td><td>40.7</td><td>45.2</td><td>31.0</td><td>35.1</td><td>49.0</td><td>46.9</td><td>41.3</td></tr>
+<tr><td>Baichuan-Omni</td><td>43.6</td><td>44.7</td><td>33.7</td><td>39.9</td><td>49.3</td><td>49.1</td><td>43.4</td></tr>
+<tr><td>Phi-4-Multimodal</td><td>48.4</td><td>46.3</td><td>34.7</td><td>40.2</td><td>49.3</td><td>48.7</td><td>44.6</td></tr>
+<tr><td>Mimo-Audio</td><td>59.3</td><td>49.3</td><td>24.9</td><td>39.1</td><td>52.7</td><td>46.2</td><td>45.2</td></tr>
+<tr><td>Step-Audio-2-mini</td><td>57.7</td><td>54.3</td><td>37.2</td><td>39.2</td><td>48.9</td><td>48.0</td><td>47.6</td></tr>
+<tr><td>Audio Flamingo 3</td><td>53.8</td><td>50.2</td><td>36.0</td><td>43.0</td><td>54.5</td><td>49.6</td><td>47.8</td></tr>
+<tr><td>Qwen2.5-Omni 3B</td><td>55.7</td><td>53.2</td><td>38.6</td><td>41.1</td><td>51.8</td><td>50.8</td><td>48.5</td></tr>
+<tr><td>Qwen2.5-Omni 7B</td><td>57.8</td><td>52.9</td><td>39.1</td><td>44.0</td><td>53.2</td><td>50.8</td><td>49.6</td></tr>
+<tr><td>Qwen3-Omni</td><td><b>61.7</b></td><td>54.6</td><td><b>39.3</b></td><td>45.0</td><td>56.9</td><td>56.1</td><td><b>52.3</b></td></tr>
+<tr><td>Qwen3-Omni-Flash-1201</td><td>48.0</td><td>45.9</td><td>29.5</td><td>45.6</td><td>56.7</td><td>54.8</td><td>46.7</td></tr>
+<tr><td>Gemini-2.5-Flash</td><td>56.3</td><td><b>55.3</b></td><td>37.7</td><td>46.8</td><td><b>58.6</b></td><td><b>58.0</b></td><td>52.1</td></tr>
+<tr><td>Gemini-2.5-Pro</td><td>55.5</td><td>54.4</td><td>37.7</td><td><b>47.6</b></td><td>57.3</td><td>56.6</td><td>51.5</td></tr>
+<tr><td>Gemini-3-Flash</td><td>54.3</td><td>51.1</td><td>34.1</td><td>47.2</td><td>57.2</td><td>57.0</td><td>51.0</td></tr>
+<tr><td>Gemini-3-Pro</td><td>55.5</td><td>45.5</td><td>25.8</td><td>44.0</td><td>53.2</td><td>52.0</td><td>46.0</td></tr>
+</tbody>
+</table>
 
 ## 9. Acknowledgement
 
@@ -1195,7 +916,7 @@ We have referred to the implementation of FENSE for the evaluation
 
 ## 10. Contributing
 
-[Yadong Niu](https://github.com/nyd3001)`*` · [Tianzi Wang](https://github.com/Jzmo)`*` · [Heinrich Dinkel](https://github.com/RicherMans) · [Xingwei Sun](https://github.com/xingws) · [Jiahao Zhou](https://github.com/zhoukezi) · [Gang Li](https://github.com/GrantL10) · [Jizhong Liu](https://github.com/frankenliu) · [Xunying Liu](https://scholar.google.com/citations?hl=en&user=5_9jk8AAAAAJ&view_op=list_works&sortby=pubdate) · [Junbo Zhang](https://github.com/jimbozhang) · [Jian Luan](https://github.com/jianluan)
+[Yadong Niu](https://github.com/nyd3001)`*` · [Tianzi Wang](https://github.com/Jzmo)`*` · [Heinrich Dinkel](https://github.com/RicherMans) · [Xingwei Sun](https://github.com/xingws) · [Jiahao Zhou](https://github.com/zhoukezi) · [Gang Li](https://github.com/GrantL10) · [Jiahao Mei](https://github.com/NieeiM) · [Jizhong Liu](https://github.com/frankenliu) · [Xunying Liu](https://scholar.google.com/citations?hl=en&user=5_9jk8AAAAAJ&view_op=list_works&sortby=pubdate) · [Junbo Zhang](https://github.com/jimbozhang) · [Jian Luan](https://github.com/jianluan)
 
 `*`: Equal Contribution
 
