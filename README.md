@@ -4,7 +4,7 @@
 <a href="https://arxiv.org/abs/2507.23511"><b>📖 Paper</b></a> | <a href="https://nyd3001.github.io/mecat-demo"><b>🎧 Demo</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-Caption"><b>🔊 MECAT-Caption (HF)</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-QA"><b>🔊 MECAT-QA (HF)</b></a>
 </p>
 
-<p align="center"><img src="src/logo.png" alt="MECAT Logo" width="300"/></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/xiaomi-research/mecat@main/src/logo.png" alt="MECAT Logo" width="300"/></p>
 
 ## Table of Contents
 - [1. Introduction](#1-introduction)
@@ -33,7 +33,7 @@ MECAT is a comprehensive benchmark constructed on **large-scale data** to evalua
 - **Audio Captioning**: Generating textual descriptions for given audio
 - **Audio Question Answering**: Answering questions about given audio
 
-![image](./src/framework.png)
+![image](https://cdn.jsdelivr.net/gh/xiaomi-research/mecat@main/src/framework.png)
 
 
 ## 2. Features 
