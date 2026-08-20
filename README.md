@@ -1,12 +1,21 @@
 <h2 align="center">MECAT: A Multi-Experts Constructed Benchmark for Fine-Grained Audio Understanding Tasks</h2>
 
 <p align="center">
-<a href="https://arxiv.org/abs/2507.23511"><b>📖 Paper</b></a> | <a href="https://nyd3001.github.io/mecat-demo"><b>🎧 Demo</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-Caption"><b>🔊 MECAT-Caption (HF)</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-QA"><b>🔊 MECAT-QA (HF)</b></a>
+<a href="https://arxiv.org/abs/2507.23511"><b>📖 Paper</b></a> | <a href="https://nyd3001.github.io/mecat-demo"><b>🎧 Demo</b></a> | <a href="https://nyd3001.github.io/mecat-demo/leaderboard.html"><b>🏆 Leaderboard</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-Caption"><b>🔊 MECAT-Caption (HF)</b></a> | <a href="https://huggingface.co/datasets/mispeech/MECAT-QA"><b>🔊 MECAT-QA (HF)</b></a>
 </p>
 
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/xiaomi-research/mecat@main/src/logo.png" alt="MECAT Logo" width="300"/></p>
 
+## News
+
+- **2026.08.20** — The [MECAT Leaderboard](https://nyd3001.github.io/mecat-demo/leaderboard.html) is now available with comprehensive benchmark results.
+- **2026.04.30** — 🎉 MECAT was accepted to [**ICML 2026**](https://openreview.net/forum?id=MgjXTLpmgf), accompanied by the release of an interactive [audio demo](https://nyd3001.github.io/mecat-demo).
+- **2026.03.27** — [**ACAVCaps**](https://github.com/xiaomi-research/acavcaps), a companion training set for MECAT, was released alongside its [**ICASSP 2026 paper**](https://ieeexplore.ieee.org/document/11463626).
+- **2025.12.17** — MECAT was optimized for the [**Interspeech 2026 Audio Encoder Challenge**](https://dataoceanai.github.io/Interspeech2026-Audio-Encoder-Challenge/).
+- **2025.08.02** — The MECAT project was launched.
+
 ## Table of Contents
+- [News](#news)
 - [1. Introduction](#1-introduction)
 - [2. Features](#2-features)
 - [3. Data Distribution](#3-data-distribution)
@@ -838,73 +847,45 @@ This approach is useful when:
 **Important**: If you want to obtain results for different tasks (e.g., evaluating multiple caption subtasks or QA subtasks), it is recommended to use the methods described in sections 7.1-7.3, as they automatically select the appropriate keys for different tasks and provide comprehensive evaluation results across all subtasks.
 
 ## 8. Results
-### 8.1 Audio-Captioning Task (DATE %)
 
-**Bold** indicates the best performance. Models above the line are open-weight; below are proprietary/API-based.
+> **Selected Results:** The tables below present a representative selection of models from the Qwen, Kimi, Inkling, and Gemini families.
+>
+> For complete results and rankings across all evaluated models, see the [🏆 Full MECAT Leaderboard](https://nyd3001.github.io/mecat-demo/leaderboard.html).
+
+### 8.1 Audio-Captioning Task (DATE %, Selected Models)
 
 <table>
 <thead>
-<tr>
-<th rowspan="3">Type</th><th rowspan="3">Model</th>
-<th colspan="2">Systemic</th><th colspan="6">Content-Specific</th>
-<th rowspan="2">Content<br>Unrelated</th><th rowspan="3">Score</th>
-</tr>
-<tr>
-<th colspan="2">Speech</th><th colspan="2">Music</th><th colspan="2">Sound</th>
-</tr>
-<tr>
-<th>Long</th><th>Short</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Env</th>
-</tr>
+<tr><th rowspan="3">Model</th><th colspan="2">Systemic</th><th colspan="6">Content-Specific</th><th rowspan="2">Content<br>Unrelated</th><th rowspan="3">Score</th></tr>
+<tr><th colspan="2"></th><th colspan="2">Speech</th><th colspan="2">Music</th><th colspan="2">Sound</th></tr>
+<tr><th>Long</th><th>Short</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Pure</th><th>Mixed</th><th>Env</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="2">Caption<br>-Only</td><td>Pengi</td><td>43.5</td><td>46.8</td><td>27.2</td><td>29.5</td><td>29.3</td><td>13.1</td><td>42.8</td><td>14.6</td><td>7.1</td><td>29.4</td></tr>
-<tr><td>EnClap</td><td>48.6</td><td>53.1</td><td>30.2</td><td>31.8</td><td>17.9</td><td>15.9</td><td>48.8</td><td>15.2</td><td>6.8</td><td>31.9</td></tr>
-<tr><td rowspan="15">LALM</td><td>Phi-4-Multimodal</td><td>42.4</td><td>44.0</td><td>26.9</td><td>31.3</td><td>14.9</td><td>24.0</td><td>28.5</td><td>18.1</td><td>13.1</td><td>30.0</td></tr>
+<tr><td>Qwen2.5-Omni-7B</td><td>61.1</td><td>56.5</td><td>39.9</td><td>40.9</td><td>32.1</td><td>30.9</td><td>50.7</td><td>23.8</td><td>17.9</td><td>42.6</td></tr>
+<tr><td>Qwen3-Omni-Flash-1201</td><td>65.7</td><td>62.5</td><td>59.2</td><td>59.9</td><td>57.4</td><td>32.5</td><td>55.8</td><td>31.6</td><td>27.1</td><td>52.9</td></tr>
 <tr><td>Kimi-Audio-7B</td><td>49.5</td><td>54.2</td><td>30.0</td><td>31.3</td><td>27.7</td><td>16.9</td><td>43.1</td><td>16.2</td><td>7.0</td><td>32.8</td></tr>
-<tr><td>Baichuan-Audio</td><td>42.6</td><td>36.5</td><td>46.0</td><td>40.4</td><td>21.3</td><td>20.7</td><td>44.8</td><td>17.7</td><td>15.1</td><td>33.7</td></tr>
-<tr><td>Baichuan-Omni</td><td>47.0</td><td>50.9</td><td>43.5</td><td>41.7</td><td>35.2</td><td>13.7</td><td>34.3</td><td>19.7</td><td>11.3</td><td>35.6</td></tr>
-<tr><td>Mimo-Audio</td><td>56.5</td><td>56.9</td><td>45.8</td><td>44.9</td><td>35.8</td><td>19.4</td><td>46.8</td><td>21.0</td><td>9.8</td><td>40.1</td></tr>
-<tr><td>Audio Flamingo 3</td><td>52.5</td><td>51.5</td><td>49.3</td><td>48.8</td><td>40.4</td><td>24.8</td><td>50.6</td><td>21.9</td><td>11.5</td><td>40.4</td></tr>
-<tr><td>Qwen3-Omni</td><td>47.9</td><td>43.7</td><td>50.2</td><td>48.7</td><td>51.2</td><td>26.8</td><td>49.0</td><td>19.5</td><td>18.2</td><td>40.4</td></tr>
-<tr><td>Step-Audio-2-mini</td><td>55.6</td><td>58.7</td><td>44.2</td><td>43.6</td><td>35.3</td><td>32.0</td><td>42.8</td><td>18.9</td><td>16.1</td><td>41.5</td></tr>
-<tr><td>Qwen2.5-Omni 3B</td><td>56.4</td><td>55.2</td><td>42.5</td><td>41.3</td><td>46.6</td><td>29.7</td><td>52.9</td><td>23.9</td><td>19.4</td><td>42.5</td></tr>
-<tr><td>Qwen2.5-Omni 7B</td><td>61.1</td><td>56.5</td><td>39.9</td><td>40.9</td><td>32.1</td><td>30.9</td><td>50.7</td><td>23.8</td><td>17.9</td><td>42.6</td></tr>
-<tr><td>Qwen3-Omni-Flash-1201</td><td><b>65.7</b></td><td>62.5</td><td>59.2</td><td>59.9</td><td><b>57.4</b></td><td>32.5</td><td><b>55.8</b></td><td><b>31.6</b></td><td><b>27.1</b></td><td>52.9</td></tr>
-<tr><td>Gemini-2.5-Flash</td><td>65.6</td><td>63.9</td><td>57.5</td><td>57.5</td><td>52.9</td><td><b>41.0</b></td><td>52.2</td><td>28.3</td><td>22.1</td><td>51.6</td></tr>
+<tr><td>Inkling-Small-276B-A12B</td><td>69.3</td><td>67.9</td><td>58.5</td><td>59.7</td><td>54.0</td><td>42.4</td><td>45.2</td><td>28.6</td><td>26.3</td><td><b>54.3</b></td></tr>
+<tr><td>Gemini-2.5-Flash</td><td>65.6</td><td>63.9</td><td>57.5</td><td>57.5</td><td>52.9</td><td>41.0</td><td>52.2</td><td>28.3</td><td>22.1</td><td>51.6</td></tr>
 <tr><td>Gemini-2.5-Pro</td><td>62.3</td><td>62.4</td><td>56.6</td><td>57.5</td><td>53.6</td><td>38.7</td><td>53.4</td><td>29.9</td><td>24.0</td><td>50.6</td></tr>
 <tr><td>Gemini-3-Flash</td><td>63.6</td><td>61.9</td><td>59.4</td><td>60.8</td><td>43.1</td><td>32.9</td><td>51.1</td><td>29.7</td><td>25.7</td><td>51.1</td></tr>
-<tr><td>Gemini-3-Pro</td><td>64.9</td><td><b>65.8</b></td><td><b>60.5</b></td><td><b>62.4</b></td><td>49.8</td><td>39.8</td><td>55.1</td><td>29.9</td><td>26.1</td><td><b>53.1</b></td></tr>
+<tr><td>Gemini-3-Pro</td><td>64.9</td><td>65.8</td><td>60.5</td><td>62.4</td><td>49.8</td><td>39.8</td><td>55.1</td><td>29.9</td><td>26.1</td><td>53.1</td></tr>
 </tbody>
 </table>
 
-### 8.2 Audio-Question-Answering (DATE %)
+### 8.2 Audio-Question-Answering (DATE %, Selected Models)
 
 <table>
 <thead>
-<tr>
-<th rowspan="2">Model</th>
-<th>Perception</th><th colspan="2">Analysis</th><th colspan="3">Reasoning</th>
-<th rowspan="2">Score</th>
-</tr>
-<tr>
-<th>Direct<br>Perception</th><th>Sound<br>Characteristics</th><th>Quality<br>Assessment</th>
-<th>Environment<br>Reasoning</th><th>Inference &<br>Judgment</th><th>Application<br>Context</th>
-</tr>
+<tr><th rowspan="2">Model</th><th>Perception</th><th colspan="2">Analysis</th><th colspan="3">Reasoning</th><th rowspan="2">Score</th></tr>
+<tr><th>Direct<br>Perception</th><th>Sound<br>Characteristics</th><th>Quality<br>Assessment</th><th>Environment<br>Reasoning</th><th>Inference &amp;<br>Judgment</th><th>Application<br>Context</th></tr>
 </thead>
 <tbody>
-<tr><td>Kimi-Audio-7B</td><td>45.6</td><td>39.2</td><td>18.7</td><td>34.6</td><td>48.9</td><td>41.2</td><td>38.0</td></tr>
-<tr><td>Baichuan-Audio</td><td>40.7</td><td>45.2</td><td>31.0</td><td>35.1</td><td>49.0</td><td>46.9</td><td>41.3</td></tr>
-<tr><td>Baichuan-Omni</td><td>43.6</td><td>44.7</td><td>33.7</td><td>39.9</td><td>49.3</td><td>49.1</td><td>43.4</td></tr>
-<tr><td>Phi-4-Multimodal</td><td>48.4</td><td>46.3</td><td>34.7</td><td>40.2</td><td>49.3</td><td>48.7</td><td>44.6</td></tr>
-<tr><td>Mimo-Audio</td><td>59.3</td><td>49.3</td><td>24.9</td><td>39.1</td><td>52.7</td><td>46.2</td><td>45.2</td></tr>
-<tr><td>Step-Audio-2-mini</td><td>57.7</td><td>54.3</td><td>37.2</td><td>39.2</td><td>48.9</td><td>48.0</td><td>47.6</td></tr>
-<tr><td>Audio Flamingo 3</td><td>53.8</td><td>50.2</td><td>36.0</td><td>43.0</td><td>54.5</td><td>49.6</td><td>47.8</td></tr>
-<tr><td>Qwen2.5-Omni 3B</td><td>55.7</td><td>53.2</td><td>38.6</td><td>41.1</td><td>51.8</td><td>50.8</td><td>48.5</td></tr>
-<tr><td>Qwen2.5-Omni 7B</td><td>57.8</td><td>52.9</td><td>39.1</td><td>44.0</td><td>53.2</td><td>50.8</td><td>49.6</td></tr>
-<tr><td>Qwen3-Omni</td><td><b>61.7</b></td><td>54.6</td><td><b>39.3</b></td><td>45.0</td><td>56.9</td><td>56.1</td><td><b>52.3</b></td></tr>
+<tr><td>Qwen2.5-Omni-7B</td><td>57.8</td><td>52.9</td><td>39.1</td><td>44.0</td><td>53.2</td><td>50.8</td><td>49.6</td></tr>
 <tr><td>Qwen3-Omni-Flash-1201</td><td>48.0</td><td>45.9</td><td>29.5</td><td>45.6</td><td>56.7</td><td>54.8</td><td>46.7</td></tr>
-<tr><td>Gemini-2.5-Flash</td><td>56.3</td><td><b>55.3</b></td><td>37.7</td><td>46.8</td><td><b>58.6</b></td><td><b>58.0</b></td><td>52.1</td></tr>
-<tr><td>Gemini-2.5-Pro</td><td>55.5</td><td>54.4</td><td>37.7</td><td><b>47.6</b></td><td>57.3</td><td>56.6</td><td>51.5</td></tr>
+<tr><td>Kimi-Audio-7B</td><td>45.6</td><td>39.2</td><td>18.7</td><td>34.6</td><td>48.9</td><td>41.2</td><td>38.0</td></tr>
+<tr><td>Inkling-Small-276B-A12B</td><td>56.4</td><td>49.1</td><td>33.1</td><td>49.6</td><td>58.8</td><td>57.1</td><td>50.7</td></tr>
+<tr><td>Gemini-2.5-Flash</td><td>56.3</td><td>55.3</td><td>37.7</td><td>46.8</td><td>58.6</td><td>58.0</td><td>52.1</td></tr>
+<tr><td>Gemini-2.5-Pro</td><td>55.5</td><td>54.4</td><td>37.7</td><td>47.6</td><td>57.3</td><td>56.6</td><td>51.5</td></tr>
 <tr><td>Gemini-3-Flash</td><td>54.3</td><td>51.1</td><td>34.1</td><td>47.2</td><td>57.2</td><td>57.0</td><td>51.0</td></tr>
 <tr><td>Gemini-3-Pro</td><td>55.5</td><td>45.5</td><td>25.8</td><td>44.0</td><td>53.2</td><td>52.0</td><td>46.0</td></tr>
 </tbody>
